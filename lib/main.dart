@@ -37,10 +37,7 @@ class EnglishQuizApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         primaryColor: const Color(0xffFF9F40),
       ),
-<<<<<<< HEAD
       home: const SignUpScreen(),
-=======
->>>>>>> 731c610a8ab47c1a915f977873678f55f64e0878
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:english_quiz/constants/gaps.dart';
 import 'package:english_quiz/constants/sizes.dart';
@@ -19,14 +20,14 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
     if (_formKey.currentState != null) {
       if (_formKey.currentState!.validate()) {
         _formKey.currentState!.save();
-        // ref.read(loginProvider.notifier).login(
-        //       formData["email"]!,
-        //       formData["password"]!,
-        //       context,
-        //     );
-        // context.goNamed(InterestsScreen.routeName);
       }
     }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
   }
 
   @override

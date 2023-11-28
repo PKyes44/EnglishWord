@@ -71,6 +71,13 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
     print("data: $data");
     FirebaseDatabase ref = FirebaseDatabase.instance;
     await ref.ref().child('user/${widget.userData['nickname']}').set(data);
+
+    await ref.ref().child('userData').set(
+      {
+        '${widget.userData['nickname']}': widget.userData['password'],
+      },
+    );
+
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const SignUpScreen(),
