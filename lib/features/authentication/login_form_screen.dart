@@ -16,7 +16,7 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
 
   Map<String, String> formData = {};
 
-  List<Map<String, String>> userData = new List<Map<String, String>>();
+  List<Map<String, String>> userData = [];
 
   void _onSubmitTap() {
     if (_formKey.currentState != null) {
@@ -32,26 +32,14 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
     // TODO: implement initState
     super.initState();
   }
-  
-  Future<List<Object?>> readUserData() async {
+
+  Future<Map<Object?, Object?>> readUserData() async {
     final reference = FirebaseDatabase.instance.ref();
-    DataSnapshot snapshot =
-        await reference.child('userData').get();
-    try {
-      final readData = snapshot.value as Map<String, String>;
+    DataSnapshot snapshot = await reference.child('user/').get();
+    final readData = snapshot.value as Map<Object?, Object?>;
 
-      // for (key in readData.keys()) {
-      //   userData.add({
-      //     key: readData[key]
-      //   });
-      // }
-
-      return readData;
-    } catch (e) {
-      return [null];
-    }
+    return readData;
   }
-
 
   @override
   Widget build(BuildContext context) {
